@@ -20,9 +20,7 @@
   --panel-bottom: rgba(3,13,35,.96);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html, body {
   width: 100%;
@@ -70,14 +68,8 @@ body::after {
 }
 
 @keyframes ambient {
-  from {
-    transform: translate(0,0) scale(.9);
-    opacity: .55;
-  }
-  to {
-    transform: translate(9vw,-5vh) scale(1.15);
-    opacity: 1;
-  }
+  from { transform: translate(0,0) scale(.9); opacity: .55; }
+  to { transform: translate(9vw,-5vh) scale(1.15); opacity: 1; }
 }
 
 .app {
@@ -134,6 +126,7 @@ body::after {
   display: grid;
   place-items: center;
   padding: clamp(20px,3vw,46px);
+  z-index: 1;
 }
 
 .slide {
@@ -157,23 +150,12 @@ body::after {
 }
 
 @keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px) scale(.994);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(10px) scale(.994); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-h1,h2,h3,p {
-  margin-top: 0;
-}
-
-h1,h2,h3 {
-  font-family: "Segoe UI", Arial, sans-serif;
-}
+h1,h2,h3,p { margin-top: 0; }
+h1,h2,h3 { font-family: "Segoe UI", Arial, sans-serif; }
 
 h1 {
   margin-bottom: 12px;
@@ -211,19 +193,14 @@ h3 {
   line-height: 1.5;
 }
 
-.accent {
-  color: var(--cyan);
-}
-
-.muted {
-  color: var(--muted);
-}
+.accent { color: var(--cyan); }
+.muted { color: var(--muted); }
 
 .content-area {
   flex: 1;
   min-height: 0;
   display: grid;
-  gap: clamp(12px,1.5vw,22px);
+  gap: clamp(18px, 2vw, 28px);
 }
 
 .two-col {
@@ -233,7 +210,7 @@ h3 {
 .stack {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 20px;
   min-height: 0;
 }
 
@@ -243,12 +220,7 @@ h3 {
 }
 
 /* ESTILO UNIFICADO DE LOS RECUADROS */
-
-.slot,
-.data-card,
-.intermediate-title,
-.visual-slot,
-.meta-item {
+.slot, .data-card, .intermediate-title, .visual-slot, .meta-item {
   position: relative;
   border: 1px solid var(--panel-border);
   border-radius: 15px;
@@ -262,11 +234,7 @@ h3 {
     0 0 20px var(--panel-glow);
 }
 
-.slot::after,
-.data-card::after,
-.intermediate-title::after,
-.visual-slot::after,
-.meta-item::after {
+.slot::after, .data-card::after, .intermediate-title::after, .visual-slot::after, .meta-item::after {
   content: "";
   position: absolute;
   width: 125px;
@@ -280,7 +248,6 @@ h3 {
 }
 
 .slot {
-  position: relative;
   min-width: 0;
   min-height: 110px;
   height: 100%;
@@ -324,7 +291,6 @@ h3 {
 }
 
 /* MODELOS 3D */
-
 .model-slot {
   position: relative;
   flex: 1;
@@ -362,11 +328,11 @@ h3 {
   color: #83b9e8;
   font-size: 9px;
   letter-spacing: .16em;
+  z-index: 2;
+  pointer-events: none;
 }
 
-.cover {
-  justify-content: center;
-}
+.cover { justify-content: center; }
 
 .cover-layout {
   display: grid;
@@ -391,7 +357,6 @@ h3 {
 }
 
 /* PORTADA AIRBUS */
-
 .slide.cover {
   justify-content: center;
   align-items: center;
@@ -400,34 +365,28 @@ h3 {
 .airbus-wordmark {
   width: 100%;
   text-align: center;
-
   color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 1000;
   font-size: clamp(75px, 15vw, 210px);
   letter-spacing: -0.065em;
   line-height: 1;
-
   transform: scaleX(1.08);
-
   text-shadow:
     0 0 8px rgba(255,255,255,.65),
     0 0 20px rgba(100,190,255,.65),
     0 0 45px rgba(40,145,255,.55),
     0 0 85px rgba(0,110,255,.4);
-
   animation: airbusGlow 3s ease-in-out infinite alternate;
 }
 
 @keyframes airbusGlow {
-
   from {
     text-shadow:
       0 0 5px rgba(255,255,255,.45),
       0 0 15px rgba(100,190,255,.4),
       0 0 35px rgba(40,145,255,.3);
   }
-
   to {
     text-shadow:
       0 0 12px rgba(255,255,255,.95),
@@ -435,7 +394,6 @@ h3 {
       0 0 55px rgba(40,145,255,.75),
       0 0 100px rgba(0,110,255,.6);
   }
-
 }
 
 .cover-rule {
@@ -449,7 +407,7 @@ h3 {
 .cover-meta {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 16px;
   margin-top: 20px;
 }
 
@@ -478,12 +436,11 @@ h3 {
 }
 
 /* DIAPOSITIVAS INTERMEDIAS */
-
 .intermediate-layout {
   flex: 1;
   min-height: 0;
   display: grid;
-  gap: clamp(14px, 2vw, 28px);
+  gap: clamp(22px, 2.5vw, 34px);
 }
 
 .intermediate-title {
@@ -514,7 +471,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: clamp(10px, 1.5vw, 18px);
+  gap: clamp(16px, 1.8vw, 22px);
   min-height: 0;
 }
 
@@ -601,90 +558,28 @@ h3 {
 }
 
 /* DISTRIBUCIÓN DE LAS SEIS PLANTILLAS */
+.layout-1 .intermediate-layout { grid-template-columns: 1fr 1fr; }
+.layout-1 .left-column { display: grid; grid-template-rows: auto 1fr; gap: clamp(18px, 2vw, 26px); min-height: 0; }
 
-.layout-1 .intermediate-layout {
-  grid-template-columns: 1fr 1fr;
-}
+.layout-2 .intermediate-layout { grid-template-columns: 1fr 1fr; }
+.layout-2 .right-column { display: grid; grid-template-rows: auto 1fr; gap: clamp(18px, 2vw, 26px); min-height: 0; }
 
-.layout-1 .left-column {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: clamp(14px, 2vw, 24px);
-  min-height: 0;
-}
+.layout-3 .intermediate-layout { grid-template-columns: 1.05fr .95fr; }
+.layout-3 .left-column { display: grid; grid-template-rows: auto 1fr; gap: clamp(18px, 2vw, 26px); min-height: 0; }
+.layout-3 .intermediate-data { grid-template-columns: 1fr; grid-template-rows: repeat(4, minmax(0, 1fr)); }
 
-.layout-2 .intermediate-layout {
-  grid-template-columns: 1fr 1fr;
-}
+.layout-4 .intermediate-layout { grid-template-columns: .85fr 1.15fr; }
+.layout-4 .left-column { display: grid; grid-template-rows: auto 1fr; gap: clamp(18px, 2vw, 26px); min-height: 0; }
 
-.layout-2 .right-column {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: clamp(14px, 2vw, 24px);
-  min-height: 0;
-}
+.layout-5 .intermediate-layout { grid-template-columns: .85fr 1.15fr; }
+.layout-5 .left-column { display: grid; grid-template-rows: auto 1fr; gap: clamp(18px, 2vw, 26px); min-height: 0; }
 
-.layout-3 .intermediate-layout {
-  grid-template-columns: 1.05fr .95fr;
-}
-
-.layout-3 .left-column {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 12px;
-  min-height: 0;
-}
-
-.layout-3 .intermediate-data {
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, minmax(0, 1fr));
-}
-
-.layout-4 .intermediate-layout {
-  grid-template-columns: .85fr 1.15fr;
-}
-
-.layout-4 .left-column {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 14px;
-  min-height: 0;
-}
-
-.layout-5 .intermediate-layout {
-  grid-template-columns: .85fr 1.15fr;
-}
-
-.layout-5 .left-column {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 14px;
-  min-height: 0;
-}
-
-.layout-6 .intermediate-layout {
-  grid-template-columns: 1fr 1fr;
-}
-
-.layout-6 .left-column {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 14px;
-  min-height: 0;
-}
-
-.layout-6 .intermediate-data {
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, minmax(0, 1fr));
-}
+.layout-6 .intermediate-layout { grid-template-columns: 1fr 1fr; }
+.layout-6 .left-column { display: grid; grid-template-rows: auto 1fr; gap: clamp(18px, 2vw, 26px); min-height: 0; }
+.layout-6 .intermediate-data { grid-template-columns: 1fr; grid-template-rows: repeat(3, minmax(0, 1fr)); }
 
 /* EFECTOS */
-
-.data-card:hover,
-.intermediate-title:hover,
-.meta-item:hover,
-.slot:hover,
-.visual-slot:hover {
+.data-card:hover, .intermediate-title:hover, .meta-item:hover, .slot:hover, .visual-slot:hover {
   border-color: rgba(98,215,255,.68);
   box-shadow:
     inset 0 0 42px rgba(0,115,255,.17),
@@ -694,7 +589,6 @@ h3 {
 }
 
 /* BARRA INFERIOR */
-
 .bottombar {
   position: absolute;
   z-index: 5;
@@ -756,128 +650,47 @@ h3 {
 }
 
 /* ADAPTACIÓN A PANTALLAS PEQUEÑAS */
-
 @media (max-width:760px) {
-
-  .topbar {
-    height: 46px;
-  }
-
-  .stage {
-    inset: 46px 0 46px;
-    padding: 7px;
-  }
-
- .slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  max-height: 960px;
-  display: none;
-  overflow: hidden;
-  padding: clamp(20px,3vw,46px);
-  border: none;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-  .cover-layout {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    align-content: start;
-  }
-
-  .cover-copy {
-    justify-content: flex-start;
-  }
-
-  .cover .model-slot {
-    min-height: 190px;
-  }
-
-  .intermediate-layout,
-  .layout-1 .intermediate-layout,
-  .layout-2 .intermediate-layout,
-  .layout-3 .intermediate-layout,
-  .layout-4 .intermediate-layout,
-  .layout-5 .intermediate-layout,
-  .layout-6 .intermediate-layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-
-  .layout-1 .left-column,
-  .layout-2 .right-column,
-  .layout-3 .left-column,
-  .layout-4 .left-column,
-  .layout-5 .left-column,
-  .layout-6 .left-column {
-    min-height: 250px;
-  }
-
-  .layout-3 .intermediate-data {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, minmax(75px, auto));
-  }
-
-  .layout-6 .intermediate-data {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, minmax(75px, auto));
-  }
-
-  .intermediate-data {
-    grid-auto-rows: minmax(75px, auto);
-  }
-
-  .visual-slot,
-  .intermediate-model {
-    min-height: 210px;
-  }
-
-  .content-area,
-  .two-col {
-    grid-template-columns: 1fr !important;
-    grid-template-rows: auto !important;
-  }
-
-  .model-slot {
-    min-height: 210px;
-  }
-
-  .bottombar {
-    height: 46px;
-    padding: 0 9px;
-    gap: 8px;
-  }
-
-  .top-hint {
+  .topbar { height: 46px; }
+  .stage { inset: 46px 0 46px; padding: 7px; }
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-height: 960px;
     display: none;
+    overflow: hidden;
+    padding: clamp(20px,3vw,46px);
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
   }
-
-  .counter {
-    min-width: 82px;
-    font-size: 10px;
-  }
-
-  .nav-btn {
-    padding: 6px 9px;
-  }
+  .cover-layout { grid-template-columns: 1fr; gap: 18px; align-content: start; }
+  .cover-copy { justify-content: flex-start; }
+  .cover .model-slot { min-height: 190px; }
+  .intermediate-layout, .layout-1 .intermediate-layout, .layout-2 .intermediate-layout,
+  .layout-3 .intermediate-layout, .layout-4 .intermediate-layout, .layout-5 .intermediate-layout,
+  .layout-6 .intermediate-layout { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .layout-1 .left-column, .layout-2 .right-column, .layout-3 .left-column,
+  .layout-4 .left-column, .layout-5 .left-column, .layout-6 .left-column { min-height: 250px; }
+  .layout-3 .intermediate-data { grid-template-columns: 1fr; grid-template-rows: repeat(4, minmax(75px, auto)); }
+  .layout-6 .intermediate-data { grid-template-columns: 1fr; grid-template-rows: repeat(3, minmax(75px, auto)); }
+  .intermediate-data { grid-auto-rows: minmax(75px, auto); }
+  .visual-slot, .intermediate-model { min-height: 210px; }
+  .content-area, .two-col { grid-template-columns: 1fr !important; grid-template-rows: auto !important; }
+  .model-slot { min-height: 210px; }
+  .bottombar { height: 46px; padding: 0 9px; gap: 8px; }
+  .top-hint { display: none; }
+  .counter { min-width: 82px; font-size: 10px; }
+  .nav-btn { padding: 6px 9px; }
+  .particle-side { display: none; }
 }
 
 @media (max-height:620px) and (min-width:761px) {
-
-  .slide {
-    padding: 18px 26px;
-  }
-
-  .model-slot {
-    min-height: 190px;
-  }
-
-  .cover-meta {
-    margin-top: 10px;
-  }
+  .slide { padding: 18px 26px; }
+  .model-slot { min-height: 190px; }
+  .cover-meta { margin-top: 10px; }
 }
 
 .model-slot iframe {
@@ -900,50 +713,9 @@ h3 {
   --poster-color: transparent;
 }
 
-.model-slot .model-caption {
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* MAYOR SEPARACIÓN ENTRE RECUADROS */
-
-.content-area {
-  gap: clamp(18px, 2vw, 28px);
-}
-
-.stack {
-  gap: 20px;
-}
-
-.intermediate-layout {
-  gap: clamp(22px, 2.5vw, 34px);
-}
-
-.intermediate-data {
-  gap: clamp(16px, 1.8vw, 22px);
-}
-
-.layout-1 .left-column,
-.layout-2 .right-column,
-.layout-3 .left-column,
-.layout-4 .left-column,
-.layout-5 .left-column,
-.layout-6 .left-column {
-  gap: clamp(18px, 2vw, 26px);
-}
-
-.cover-meta {
-  gap: 16px;
-}
-
 /* =====================================
    PARTICULAS LATERALES
 ===================================== */
-
-/* =====================================
-   PARTICULAS LATERALES
-===================================== */
-
 .particle-side {
   position: absolute;
   top: 54px;
@@ -954,120 +726,54 @@ h3 {
   z-index: 2;
   opacity: 1;
 }
-
-.left-particles {
-  left: 0;
-}
-
-.right-particles {
-  right: 0;
-}
-
-@media (max-width: 760px) {
-  .particle-side {
-    display: none;
-  }
-}
-
-.left-particles {
-  left: 0;
-}
-
-.right-particles {
-  right: 0;
-}
-
-/* El contenido de la presentación queda por encima */
-
-.stage {
-  z-index: 1;
-}
-
-/* En pantallas pequeñas no mostramos los laterales */
-
-@media (max-width: 760px) {
-  .particle-side {
-    display: none;
-  }
-}
-
+.left-particles { left: 0; }
+.right-particles { right: 0; }
 </style>
 
-<script type="module"
-  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
-</script>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 
 <body>
 
 <div class="app">
-
-  <!-- EFECTO DE PARTICULAS LATERALES -->
   <canvas class="particle-side left-particles"></canvas>
   <canvas class="particle-side right-particles"></canvas>
 
   <header class="topbar">
-
     <div class="brand">
       <span class="brand-mark"></span>
       Airbus Technical Evolution
     </div>
-
     <div class="top-hint">
       SISTEMAS DE CONTROL DE VUELO · INAC-CIATA
     </div>
-
   </header>
 
   <main class="stage" id="stage">
-
-    <!-- PORTADA PRINCIPAL -->
-
     <section class="slide cover active" data-kind="principal">
-
-  <div class="airbus-wordmark">
-    AIRBUS
-  </div>
-
-</section>
-
-    <!-- LAS DEMÁS DIAPOSITIVAS SE GENERAN AUTOMÁTICAMENTE -->
-
+      <div class="airbus-wordmark">AIRBUS</div>
+    </section>
   </main>
 
   <footer class="bottombar">
-
-    <button class="nav-btn" id="prevBtn" type="button">
-      ← Anterior
-    </button>
-
+    <button class="nav-btn" id="prevBtn" type="button">← Anterior</button>
     <div class="progress-track">
       <div class="progress-fill" id="progressFill"></div>
     </div>
-
-    <div class="counter" id="counter">
-      Slide 1 de 85
-    </div>
-
-    <button class="nav-btn" id="nextBtn" type="button">
-      Siguiente →
-    </button>
-
+    <div class="counter" id="counter">Slide 1 de 85</div>
+    <button class="nav-btn" id="nextBtn" type="button">Siguiente →</button>
   </footer>
-
 </div>
 
 <script>
-
 /* TÍTULOS DE LAS DIAPOSITIVAS PRINCIPALES */
-
 const MAIN_SLIDES = [
   "Portada",
   "Introducción",
   "Airbus A310",
-  "Airbus A319",
-  "Airbus A320",
-  "Airbus A321",
+  "Airbus A320", 
+  "Airbus A321", 
+  "Airbus A319", 
   "Airbus A330",
   "Airbus A340",
   "Airbus A350",
@@ -1080,7 +786,136 @@ const MAIN_SLIDES = [
 const INTERMEDIATE_PER_SECTION = 6;
 const stage = document.getElementById("stage");
 
-/* MODELOS QUE DEBEN TENER ÚNICAMENTE UNA SECCIÓN 3D */
+/* DATOS EXTRAÍDOS PARA COMPLETAR ESPACIOS VACÍOS */
+const CUSTOM_SLIDES_DATA = {
+  "Airbus A320": [
+    {
+      title: "Especificaciones Técnicas",
+      desc: "Aeronave matriz que estandarizó la aviación comercial mediante la digitalización.",
+      imgHint: "Airbus A320",
+      data: [
+        { t: "Dimensiones", d: "Longitud de 37.57 m, envergadura de 34.09 m (35.80 m neo)." },
+        { t: "Masa y Alcance", d: "MTOW desde 67,000 kg a 79,000 kg. Alcance máximo de 3,450 NM a Mach 0.82." },
+        { t: "Capacidad", d: "Entre 150 y hasta 186 pasajeros en configuraciones de alta densidad." },
+        { t: "Planta Motriz", d: "CFM56 / IAE V2533 (ceo) y LEAP-1A / PW1100G-JM con Bypass Ratio de 12:1 (neo)." }
+      ]
+    },
+    {
+      title: "ATA 27: Controles de Vuelo",
+      desc: "Introduce sistema Fly-By-Wire operado por un sidestick pasivo.",
+      imgHint: "Esquema ELAC/SEC",
+      data: [
+        { t: "Redundancia", d: "Computadoras ELAC y SEC con procesadores diferentes (Motorola e Intel)." },
+        { t: "Ley Normal", d: "Protecciones de factor de carga (+2.5g/-1g), cabeceo y alabeo (67°)." },
+        { t: "Load Alleviation", d: "Función LAF deflecta spoilers ante ráfagas para aliviar estrés sobre el ala." },
+        { t: "Lógica RETARD", d: "Alarma continua si palancas asimétricas impiden frenado (post accidente TAM 3054)." }
+      ]
+    },
+    {
+      title: "Aviónica e Hidráulica",
+      desc: "Comunicaciones digitales y sistemas de potencia de la plataforma base.",
+      imgHint: "Esquema ARINC 429",
+      data: [
+        { t: "ATA 42 (Aviónica)", d: "Comunicación digital mediante buses de datos estándar ARINC 429." },
+        { t: "ATA 29 (Hidráulica)", d: "Tres circuitos independientes a 3000 psi interconectados por PTU." },
+        { t: "Emergencias (RAT)", d: "Sistemas asistidos por turbina aerodinámica de impacto (RAT) para emergencias graves." },
+        { t: "Operatividad Local", d: "11 aeronaves (10 ceo y 1 neo) operadas activamente por JetSMART Argentina." }
+      ]
+    },
+    {
+      title: "Climatización y Combustible",
+      desc: "Optimizaciones integradas en las versiones neo.",
+      imgHint: "Pack Flow / Tanques",
+      data: [
+        { t: "ATA 21 (Climatización)", d: "Función 'Pack Flow' adaptativa calibra extracción de aire según cantidad de pasajeros." },
+        { t: "ATA 28 (Combustible)", d: "Sistemas OBIGGS/NGS inyectan nitrógeno enriquecido a los tanques." },
+        { t: "Inertización", d: "Mantiene la atmósfera por debajo del 12% de oxígeno." },
+        { t: "Prevención", d: "Anula riesgos de explosión en los tanques de combustible." }
+      ]
+    }
+  ],
+  "Airbus A321": [
+    {
+      title: "A321: Alta Densidad y Largo Radio",
+      desc: "Desarrollado para demandas de alta densidad y misiones LR / XLR.",
+      imgHint: "Airbus A321",
+      data: [
+        { t: "Dimensiones", d: "El más largo de la familia con 44.51 m. Envergadura de 35.80 m (neo)." },
+        { t: "Masa y Alcance", d: "MTOW escala de 83,000 kg a masivas 101,500 kg (XLR). Rango hasta 4,700 NM." },
+        { t: "Capacidad", d: "Típica de 180 a 220 asientos, máximo de 240 pasajeros en versiones neo." },
+        { t: "Planta Motriz", d: "Misma familia de motores, exigiendo rangos de empuje certificados hasta 35,000 lbf." }
+      ]
+    },
+    {
+      title: "Evolución Energética y Estructural",
+      desc: "Sistemas ATA 24 y ATA 32 para soportar la inmensa demanda de sistemas extra.",
+      imgHint: "Tren Aterrizaje / VFG",
+      data: [
+        { t: "ATA 24 (Energía)", d: "Elimina IDG y adopta Generadores de Frecuencia Variable (VFG) de 120 kVA." },
+        { t: "Frecuencia VFG", d: "La energía entregada fluctúa constantemente entre 360 y 800 Hz." },
+        { t: "ATA 32 (Tren XLR)", d: "Las variantes XLR requieren un tren reforzado estructuralmente." },
+        { t: "Neumáticos", d: "Neumáticos de nariz ensanchados para distribuir sus más de 100 toneladas." }
+      ]
+    },
+    {
+      title: "Arquitectura de Cabina y Combustible",
+      desc: "Sistemas ATA 25 y ATA 28 rediseñados para vuelos transoceánicos.",
+      imgHint: "Arquitectura Cabin-Flex",
+      data: [
+        { t: "ATA 25 (Cabin-Flex)", d: "Salidas dobles sobre el ala permiten evacuar 240 pasajeros en 90 segundos." },
+        { t: "ATA 28 (Tanques)", d: "El XLR incorpora un Rear Centre Tank (RCT) permanente de 12,900 litros." },
+        { t: "ATA 21 (Rediseño)", d: "Rediseño térmico en cabina trasera para evitar congelamiento del suelo por tanque RCT." },
+        { t: "ATA 23 (FANS 1/A)", d: "Mensajería CPDLC permite recibir autorizaciones de control aéreo por texto." }
+      ]
+    },
+    {
+      title: "Controles de Vuelo y Operatividad",
+      desc: "Solución de software ante alteraciones del centro de gravedad.",
+      imgHint: "A321 neo en aproximación",
+      data: [
+        { t: "ATA 27 (Controles)", d: "Anomalía dinámica extrema descubierta en pruebas de certificación." },
+        { t: "Directiva EASA", d: "AD 2019-0171 obligó a limitar el centro de gravedad trasero contra cabeceos." },
+        { t: "Software ELAC", d: "El problema requirió reescribir por completo el software de las ELAC." },
+        { t: "Operatividad Local", d: "4 aeronaves A321 neo activas bajo grupo JetSMART con matrículas chilenas (CC-)." }
+      ]
+    }
+  ],
+  "Airbus A319": [
+    {
+      title: "A319: Plataforma de Menor Densidad",
+      desc: "Retiene más del 90% de la comunalidad con el Airbus A320.",
+      imgHint: "Airbus A319 frontal",
+      data: [
+        { t: "Dimensiones", d: "Fuselaje acortado a 33.84 m de longitud. Envergadura de 34.10 m." },
+        { t: "Masa y Alcance", d: "MTOW reducido de 64,000 a 75,500 kg. Rango de hasta 3,750 NM." },
+        { t: "Capacidad", d: "Configuración típica de 124 a 134 asientos, máximo 156 pasajeros." },
+        { t: "Planta Motriz", d: "Motores de arquitectura rotativa de doble eje (CFM56-5B3 e IAE V2500)." }
+      ]
+    },
+    {
+      title: "Desafíos Estructurales por Acortamiento",
+      desc: "Impacto estructural de los Sharklets en un fuselaje más corto.",
+      imgHint: "Sharklets y Flexión Torsional",
+      data: [
+        { t: "ATA 28 y Estructura", d: "El acortamiento provocaba mayor momento de flexión torsional en la raíz del ala." },
+        { t: "Modificación 160001", d: "Limitación por software del tanque central a 23,817 litros para evitar fatiga." },
+        { t: "Prevención", d: "Controla el peso y estrés estructural sin necesidad de rediseñar el metal." },
+        { t: "ATA 25 (Salidas)", d: "Configurarlo a 156 asientos exige añadir desde fábrica una segunda salida sobre las alas." }
+      ]
+    },
+    {
+      title: "Climatización, Aviónica y Servicio",
+      desc: "Sistemas presurizados y estado de flota en Argentina.",
+      imgHint: "ADIRU / ECAM",
+      data: [
+        { t: "ATA 21 (Climatización)", d: "Computadoras BMC mantienen presión a 44 psi con diferencial máximo de 8.06 psi." },
+        { t: "ATA 22/31/34 (Aviónica)", d: "Sistemas FMGS y presentación EIS centralizan las alertas en pantalla ECAM." },
+        { t: "Inerciales ADIRU", d: "Sustituye giroscopios mecánicos por tecnología de láser de anillo." },
+        { t: "Operatividad Local", d: "0 aeronaves activas. Históricamente LAN Argentina operó hasta 12 unidades." }
+      ]
+    }
+  ]
+};
 
 const AIRCRAFT_MODELS = [
   "Airbus A310",
@@ -1094,303 +929,161 @@ const AIRCRAFT_MODELS = [
 ];
 
 /* PLANTILLAS DE DIAPOSITIVAS INTERMEDIAS */
-
 const layouts = [
-
   {
     name: "layout-1",
     html: `
       <div class="intermediate-layout">
-
         <div class="left-column">
-
           <div class="intermediate-title">
             <h2>TÍTULO</h2>
             <p>Breve descripción</p>
           </div>
-
           <div class="intermediate-data">
-
-            <div class="data-card">
-              <h3>Dato 1</h3>
-              <p>Información</p>
-            </div>
-
-            <div class="data-card">
-              <h3>Dato 2</h3>
-              <p>Información</p>
-            </div>
-
-            <div class="data-card">
-              <h3>Dato 3</h3>
-              <p>Información</p>
-            </div>
-
-            <div class="data-card">
-              <h3>Dato 4</h3>
-              <p>Información</p>
-            </div>
-
+            <div class="data-card"><h3>Dato 1</h3><p>Información</p></div>
+            <div class="data-card"><h3>Dato 2</h3><p>Información</p></div>
+            <div class="data-card"><h3>Dato 3</h3><p>Información</p></div>
+            <div class="data-card"><h3>Dato 4</h3><p>Información</p></div>
           </div>
-
         </div>
-
         <div class="model-slot intermediate-model">
-
           <div class="slot">
             <div class="slot-label">MODELO 3D</div>
             <div class="slot-hint">Columna izquierda</div>
           </div>
-
         </div>
-
       </div>
     `
   },
-
   {
     name: "layout-2",
     html: `
       <div class="intermediate-layout">
-
         <div class="model-slot intermediate-model">
-
           <div class="slot">
             <div class="slot-label">MODELO 3D</div>
             <div class="slot-hint">Columna izquierda</div>
           </div>
-
         </div>
-
         <div class="right-column">
-
           <div class="intermediate-title">
             <h2>TÍTULO</h2>
             <p>Breve descripción</p>
           </div>
-
           <div class="intermediate-data">
-
-            <div class="data-card">
-              <h3>Dato 1</h3>
-              <p>Información</p>
-            </div>
-
-            <div class="data-card">
-              <h3>Dato 2</h3>
-              <p>Información</p>
-            </div>
-
-            <div class="data-card">
-              <h3>Dato 3</h3>
-              <p>Información</p>
-            </div>
-
-            <div class="data-card">
-              <h3>Dato 4</h3>
-              <p>Información</p>
-            </div>
-
+            <div class="data-card"><h3>Dato 1</h3><p>Información</p></div>
+            <div class="data-card"><h3>Dato 2</h3><p>Información</p></div>
+            <div class="data-card"><h3>Dato 3</h3><p>Información</p></div>
+            <div class="data-card"><h3>Dato 4</h3><p>Información</p></div>
           </div>
-
         </div>
-
       </div>
     `
   },
-
   {
     name: "layout-3",
     html: `
       <div class="intermediate-layout">
-
         <div class="left-column">
-
           <div class="intermediate-title">
             <h2>TÍTULO</h2>
             <p>Breve descripción</p>
           </div>
-
           <div class="visual-slot">
             <div class="slot">
               <div class="slot-hint">IMAGEN</div>
             </div>
           </div>
-
         </div>
-
         <div class="intermediate-data">
-
-          <div class="data-card">
-            <h3>Dato 1</h3>
-            <p>Información</p>
-          </div>
-
-          <div class="data-card">
-            <h3>Dato 2</h3>
-            <p>Información</p>
-          </div>
-
-          <div class="data-card">
-            <h3>Dato 3</h3>
-            <p>Información</p>
-          </div>
-
-          <div class="data-card">
-            <h3>Dato 4</h3>
-            <p>Información</p>
-          </div>
-
+          <div class="data-card"><h3>Dato 1</h3><p>Información</p></div>
+          <div class="data-card"><h3>Dato 2</h3><p>Información</p></div>
+          <div class="data-card"><h3>Dato 3</h3><p>Información</p></div>
+          <div class="data-card"><h3>Dato 4</h3><p>Información</p></div>
         </div>
-
       </div>
     `
   },
-
   {
     name: "layout-4",
     html: `
       <div class="intermediate-layout">
-
         <div class="left-column">
-
           <div class="intermediate-title">
             <h2>TÍTULO</h2>
             <p>Breve descripción</p>
           </div>
-
           <div class="data-card">
             <h3>Datos</h3>
             <p>Información</p>
           </div>
-
         </div>
-
         <div class="visual-slot">
           <div class="slot">
             <div class="slot-hint">IMAGEN</div>
           </div>
         </div>
-
       </div>
     `
   },
-
   {
     name: "layout-5",
     html: `
       <div class="intermediate-layout">
-
         <div class="left-column">
-
           <div class="intermediate-title">
             <h2>TÍTULO</h2>
             <p>Breve descripción</p>
           </div>
-
           <div class="visual-slot">
             <div class="slot">
               <div class="slot-hint">IMAGEN</div>
             </div>
           </div>
-
         </div>
-
         <div class="intermediate-data">
-
-          <div class="data-card">
-            <h3>Dato 1</h3>
-            <p>Información</p>
-          </div>
-
-          <div class="data-card">
-            <h3>Dato 2</h3>
-            <p>Información</p>
-          </div>
-
-          <div class="data-card">
-            <h3>Dato 3</h3>
-            <p>Información</p>
-          </div>
-
-          <div class="data-card">
-            <h3>Dato 4</h3>
-            <p>Información</p>
-          </div>
-
+          <div class="data-card"><h3>Dato 1</h3><p>Información</p></div>
+          <div class="data-card"><h3>Dato 2</h3><p>Información</p></div>
+          <div class="data-card"><h3>Dato 3</h3><p>Información</p></div>
+          <div class="data-card"><h3>Dato 4</h3><p>Información</p></div>
         </div>
-
       </div>
     `
   },
-
   {
     name: "layout-6",
     html: `
       <div class="intermediate-layout">
-
         <div class="left-column">
-
           <div class="intermediate-title">
             <h2>TÍTULO</h2>
             <p>Breve descripción</p>
           </div>
-
           <div class="visual-slot">
             <div class="slot">
               <div class="slot-hint">IMAGEN</div>
             </div>
           </div>
-
         </div>
-
         <div class="intermediate-data">
-
-          <div class="data-card">
-            <h3>Dato 1</h3>
-            <p>Información</p>
-          </div>
-
-          <div class="data-card">
-            <h3>Dato 2</h3>
-            <p>Información</p>
-          </div>
-
-          <div class="data-card">
-            <h3>Dato 3</h3>
-            <p>Información</p>
-          </div>
-
+          <div class="data-card"><h3>Dato 1</h3><p>Información</p></div>
+          <div class="data-card"><h3>Dato 2</h3><p>Información</p></div>
+          <div class="data-card"><h3>Dato 3</h3><p>Información</p></div>
         </div>
-
       </div>
     `
   }
-
 ];
 
-/* CREAR DIAPOSITIVAS PRINCIPALES */
-
 function createPrincipal(title,index) {
-
   const section = document.createElement("section");
-
   section.className = "slide";
   section.dataset.kind = "principal";
 
-  /*
-    Si el título corresponde a uno de los ocho modelos Airbus,
-    se crea una única sección grande para el modelo 3D.
-
-    Las demás diapositivas principales conservan sus dos secciones.
-  */
-
   const isAircraftModel = AIRCRAFT_MODELS.includes(title);
-
   let rightColumn;
 
- if(isAircraftModel) {
-
+  if(isAircraftModel) {
     const models3D = {
       "Airbus A310": "./modelos%203D/Airbus%20A310.glb",
       "Airbus A319": "./modelos%203D/Airbus%20A319.glb",
@@ -1409,412 +1102,238 @@ function createPrincipal(title,index) {
         <model-viewer
           src="${modelPath}"
           alt="${title} en modelo tridimensional"
-          camera-controls
-          auto-rotate
-          auto-rotate-delay="0"
-          rotation-per-second="18deg"
-          interaction-prompt="none"
-          shadow-intensity="1"
-          exposure="1"
-          loading="lazy">
+          camera-controls auto-rotate auto-rotate-delay="0"
+          rotation-per-second="18deg" interaction-prompt="none"
+          shadow-intensity="1" exposure="1" loading="lazy">
         </model-viewer>
       `
       : `
         <div class="slot">
           <div class="slot-label">MODELO 3D</div>
-          <div class="slot-hint">
-            ESPACIO RESERVADO PARA INSERTAR EL MODELO 3D
-          </div>
+          <div class="slot-hint">ESPACIO RESERVADO PARA INSERTAR EL MODELO 3D</div>
         </div>
       `;
 
     rightColumn = `
       <div class="model-slot fill">
         ${model3D}
-        <div class="model-caption">
-          ${title.toUpperCase()} · VISTA INTERACTIVA
-        </div>
+        <div class="model-caption">${title.toUpperCase()} · VISTA INTERACTIVA</div>
       </div>
     `;
 
   } else {
-
     rightColumn = `
-
       <div class="model-slot fill">
-
         <div class="slot">
-
-          <div class="slot-label">
-            Modelo tridimensional
-          </div>
-
-          <div class="slot-hint">
-            ESPACIO RESERVADO PARA INSERTAR EL MODELO 3D
-          </div>
-
+          <div class="slot-label">Modelo tridimensional</div>
+          <div class="slot-hint">ESPACIO RESERVADO PARA INSERTAR EL MODELO 3D</div>
         </div>
-
-        <div class="model-caption">
-          MODELO 3D · ${title.toUpperCase()}
-        </div>
-
+        <div class="model-caption">MODELO 3D · ${title.toUpperCase()}</div>
       </div>
-
       <div class="slot" style="min-height:125px;flex:none">
-
-        <div class="slot-label">
-          Material visual complementario
-        </div>
-
-        <div class="slot-hint">
-          ESPACIO PARA IMAGEN, DIAGRAMA O ESQUEMA
-        </div>
-
+        <div class="slot-label">Material visual complementario</div>
+        <div class="slot-hint">ESPACIO PARA IMAGEN, DIAGRAMA O ESQUEMA</div>
       </div>
-
     `;
-
   }
-const isFinalSection = [
-  "Conclusiones",
-  "Bibliografía",
-  "Cierre / Preguntas"
-].includes(title);
+
+  const isFinalSection = ["Conclusiones", "Bibliografía", "Cierre / Preguntas"].includes(title);
 
   if(isFinalSection) {
-
-  section.innerHTML = `
-
-    <div class="slide-kicker">
-      Sección principal · ${String(index+1).padStart(2,"0")}
-    </div>
-
-    <div class="content-area">
-
-      <div class="stack">
-
-        <h2>${title}</h2>
-
-        <div class="slot fill">
-
-          <div class="slot-label">
-            Contenido de la sección
-          </div>
-
-          <div class="slot-hint">
-            ESPACIO PARA TEXTO, DATOS O INFORMACIÓN TÉCNICA
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  `;
-
-} else {
-
-  section.innerHTML = `
-
-    <div class="slide-kicker">
-      Sección principal · ${String(index+1).padStart(2,"0")}
-    </div>
-
-    <div class="content-area two-col">
-
-      <div class="stack">
-
-        <div>
-
+    section.innerHTML = `
+      <div class="slide-kicker">Sección principal · ${String(index+1).padStart(2,"0")}</div>
+      <div class="content-area">
+        <div class="stack">
           <h2>${title}</h2>
-
-          <p class="subtitle">
-            Espacio reservado para la presentación de esta sección.
-          </p>
-
-        </div>
-
-        <div class="slot fill">
-
-          <div class="slot-label">
-            Contenido de la sección
+          <div class="slot fill">
+            <div class="slot-label">Contenido de la sección</div>
+            <div class="slot-hint">ESPACIO PARA TEXTO, DATOS O INFORMACIÓN TÉCNICA</div>
           </div>
-
-          <div class="slot-hint">
-            ESPACIO PARA TEXTO, DATOS O INFORMACIÓN TÉCNICA
-          </div>
-
         </div>
-
       </div>
-
-      <div class="stack">
-
-        ${rightColumn}
-
+    `;
+  } else {
+    section.innerHTML = `
+      <div class="slide-kicker">Sección principal · ${String(index+1).padStart(2,"0")}</div>
+      <div class="content-area two-col">
+        <div class="stack">
+          <div>
+            <h2>${title}</h2>
+            <p class="subtitle">Espacio reservado para la presentación de esta sección.</p>
+          </div>
+          <div class="slot fill">
+            <div class="slot-label">Contenido de la sección</div>
+            <div class="slot-hint">ESPACIO PARA TEXTO, DATOS O INFORMACIÓN TÉCNICA</div>
+          </div>
+        </div>
+        <div class="stack">
+          ${rightColumn}
+        </div>
       </div>
-
-    </div>
-
-  `;
-
-}
-
+    `;
+  }
   return section;
 }
 
-/* CREAR DIAPOSITIVAS INTERMEDIAS */
-
-function createIntermediate(sectionIndex,number,layoutIndex) {
-
-  const layout = layouts[layoutIndex];
-
+function createIntermediate(sectionIndex, number, layoutIndex, customData) {
+  const layout = layouts[layoutIndex % layouts.length];
   const section = document.createElement("section");
-
   section.className = `slide ${layout.name}`;
   section.dataset.kind = "intermedio";
 
-  section.innerHTML = layout.html;
+  let html = layout.html;
 
+  if (customData) {
+    html = html.replace("TÍTULO", customData.title)
+               .replace("Breve descripción", customData.desc);
+
+    for (let i = 0; i < 4; i++) {
+      if (customData.data[i]) {
+        html = html.replace(`Dato ${i+1}`, customData.data[i].t);
+        html = html.replace("<p>Información</p>", `<p>${customData.data[i].d}</p>`);
+      } else {
+        html = html.replace(new RegExp(`<div class="data-card"[^>]*>\\s*<h3>Dato ${i\\+1}</h3>\\s*<p>Información</p>\\s*</div>`), "");
+      }
+    }
+
+    if (customData.imgHint) {
+      html = html.replace(/IMAGEN/g, customData.imgHint)
+                 .replace(/Columna izquierda/g, customData.imgHint);
+    }
+  }
+
+  section.innerHTML = html;
   return section;
 }
 
-/* GENERAR TODAS LAS DIAPOSITIVAS */
+const OMITIR_INTERMEDIOS = ["Introducción", "Airbus A310", "Conclusiones", "Bibliografía", "Cierre / Preguntas"];
 
 for(let i=1;i<MAIN_SLIDES.length;i++) {
+  const slideName = MAIN_SLIDES[i];
+  const omitir = OMITIR_INTERMEDIOS.includes(slideName);
 
-  // No crear slides intermedios en estos tres espacios:
-  // Portada → Introducción
-  // Conclusiones → Bibliografía
-  // Bibliografía → Cierre / Preguntas
+  if(!omitir) {
+    const customContent = CUSTOM_SLIDES_DATA[slideName];
 
-  const omitirIntermedios = [1, 2, 11, 12].includes(i);
-
-  if(!omitirIntermedios) {
-
-    for(let j=0;j<INTERMEDIATE_PER_SECTION;j++) {
-
-      stage.appendChild(
-        createIntermediate(i,j+1,j)
-      );
-
+    if (customContent) {
+      for (let j = 0; j < customContent.length; j++) {
+        stage.appendChild(createIntermediate(i, j+1, j, customContent[j]));
+      }
+    } else {
+      for(let j=0;j<INTERMEDIATE_PER_SECTION;j++) {
+        stage.appendChild(createIntermediate(i, j+1, j, null));
+      }
     }
-
   }
 
-  stage.appendChild(
-    createPrincipal(MAIN_SLIDES[i],i)
-  );
-
+  stage.appendChild(createPrincipal(slideName, i));
 }
 
 /* NAVEGACIÓN */
-
-const slides = Array.from(
-  document.querySelectorAll(".slide")
-);
-
+const slides = Array.from(document.querySelectorAll(".slide"));
 const counter = document.getElementById("counter");
 const progressFill = document.getElementById("progressFill");
 
 let slideNumber = 0;
 
 function showSlide(index) {
-
-  slideNumber = Math.max(
-    0,
-    Math.min(index,slides.length-1)
-  );
+  slideNumber = Math.max(0, Math.min(index,slides.length-1));
 
   slides.forEach((slide,i)=>{
-
-    slide.classList.toggle(
-      "active",
-      i===slideNumber
-    );
-
-    if(i===slideNumber) {
-      slide.scrollTop = 0;
-    }
-
+    slide.classList.toggle("active", i===slideNumber);
+    if(i===slideNumber) { slide.scrollTop = 0; }
   });
 
-  counter.textContent =
-    `Slide ${slideNumber+1} de ${slides.length}`;
-
-  progressFill.style.width =
-    `${((slideNumber+1)/slides.length)*100}%`;
+  counter.textContent = `Slide ${slideNumber+1} de ${slides.length}`;
+  progressFill.style.width = `${((slideNumber+1)/slides.length)*100}%`;
 
   const heading = slides[slideNumber].querySelector("h1,h2");
-
-  document.title =
-    `${heading ? heading.textContent : "Airbus"} | ${slideNumber+1}/${slides.length}`;
-
+  document.title = `${heading ? heading.textContent : "Airbus"} | ${slideNumber+1}/${slides.length}`;
 }
 
-function nextSlide() {
-  showSlide(slideNumber+1);
-}
+function nextSlide() { showSlide(slideNumber+1); }
+function previousSlide() { showSlide(slideNumber-1); }
 
-function previousSlide() {
-  showSlide(slideNumber-1);
-}
-
-document
-  .getElementById("nextBtn")
-  .addEventListener("click",nextSlide);
-
-document
-  .getElementById("prevBtn")
-  .addEventListener("click",previousSlide);
+document.getElementById("nextBtn").addEventListener("click",nextSlide);
+document.getElementById("prevBtn").addEventListener("click",previousSlide);
 
 /* NAVEGACIÓN POR TECLADO */
-
 document.addEventListener("keydown",event=>{
-
-  if(
-    event.key==="ArrowRight" ||
-    event.key==="PageDown" ||
-    event.key===" "
-  ) {
-
+  if(event.key==="ArrowRight" || event.key==="PageDown" || event.key===" ") {
     event.preventDefault();
     nextSlide();
-
-  } else if(
-    event.key==="ArrowLeft" ||
-    event.key==="PageUp"
-  ) {
-
+  } else if(event.key==="ArrowLeft" || event.key==="PageUp") {
     event.preventDefault();
     previousSlide();
-
   } else if(event.key.toLowerCase()==="f") {
-
     event.preventDefault();
     toggleFullscreen();
-
   }
-
 });
 
 /* PANTALLA COMPLETA */
-
 async function toggleFullscreen() {
-
   try {
-
     if(!document.fullscreenElement) {
-
       await document.documentElement.requestFullscreen();
-
     } else {
-
       await document.exitFullscreen();
-
     }
-
   } catch(error) {
-
-    console.warn(
-      "No se pudo cambiar el modo de pantalla completa:",
-      error
-    );
-
+    console.warn("No se pudo cambiar el modo de pantalla completa:", error);
   }
-
 }
 
 /* INICIAR PRESENTACIÓN */
-
 showSlide(0);
+
 /* =====================================
    ANIMACION DE PARTICULAS LATERALES
 ===================================== */
-
 (() => {
-
   const canvases = [
-    {
-      element: document.querySelector(".left-particles"),
-      direction: 1
-    },
-    {
-      element: document.querySelector(".right-particles"),
-      direction: -1
-    }
+    { element: document.querySelector(".left-particles"), direction: 1 },
+    { element: document.querySelector(".right-particles"), direction: -1 }
   ];
 
-  const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function createParticles(canvas, direction) {
-
     const ctx = canvas.getContext("2d");
-
     let width;
     let height;
     let particles = [];
 
     function resize() {
-
       const rect = canvas.getBoundingClientRect();
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-
       width = rect.width;
       height = rect.height;
-
       canvas.width = width * dpr;
       canvas.height = height * dpr;
-
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const amount = Math.max(
-        45,
-        Math.floor(width * height / 3500)
-      );
-
+      const amount = Math.max(45, Math.floor(width * height / 3500));
       particles = [];
 
       for (let i = 0; i < amount; i++) {
-
-       particles.push({
-  x: Math.random() * width,
-
-  /* Distribución a lo largo de TODO el lateral */
-  y: (i / amount) * height +
-     (Math.random() - 0.5) * (height / amount),
-
-  size: Math.random() * 1.8 + 0.8,
-
-  speed: Math.random() * 0.35 + 0.15,
-
-  opacity: Math.random() * 0.40 + 0.30,
-
-  phase: Math.random() * Math.PI * 2
-});
-
+        particles.push({
+          x: Math.random() * width,
+          y: (i / amount) * height + (Math.random() - 0.5) * (height / amount),
+          size: Math.random() * 1.8 + 0.8,
+          speed: Math.random() * 0.35 + 0.15,
+          opacity: Math.random() * 0.40 + 0.30,
+          phase: Math.random() * Math.PI * 2
+        });
       }
-
     }
 
     function draw() {
-
       ctx.clearRect(0, 0, width, height);
-
       particles.forEach(p => {
-
         p.x += p.speed * direction;
-
         p.phase += 0.015;
-
-        const glow =
-          p.opacity * (0.75 + Math.sin(p.phase) * 0.25);
-
-        /* Reiniciar al llegar al centro */
+        const glow = p.opacity * (0.75 + Math.sin(p.phase) * 0.25);
 
         if (direction === 1 && p.x > width) {
           p.x = 0;
@@ -1826,25 +1345,12 @@ showSlide(0);
           p.y = Math.random() * height;
         }
 
-        /* Brillo suave */
-
         ctx.beginPath();
-
-        ctx.arc(
-          p.x,
-          p.y,
-          p.size,
-          0,
-          Math.PI * 2
-        );
-
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(100,190,255,${glow})`;
-
         ctx.shadowBlur = 7;
         ctx.shadowColor = "rgba(40,145,255,0.45)";
-
         ctx.fill();
-
       });
 
       ctx.shadowBlur = 0;
@@ -1852,30 +1358,20 @@ showSlide(0);
       if (!reducedMotion) {
         requestAnimationFrame(draw);
       }
-
     }
 
     resize();
     draw();
-
     window.addEventListener("resize", resize);
-
   }
 
   canvases.forEach(item => {
-
     if (item.element) {
-      createParticles(
-        item.element,
-        item.direction
-      );
+      createParticles(item.element, item.direction);
     }
-
   });
 
 })();
-
 </script>
-
 </body>
 </html>
