@@ -787,13 +787,13 @@ const MAIN_SLIDES = [
 const INTERMEDIATE_PER_SECTION = 6;
 const stage = document.getElementById("stage");
 
-/* DATOS EXTRAÍDOS PARA COMPLETAR ESPACIOS VACÍOS */
+/* DATOS EXTRAÍDOS PARA COMPLETAR ESPACIOS VACÍOS Y RUTAS DE IMÁGENES */
 const CUSTOM_SLIDES_DATA = {
   "Airbus A320": [
     {
       title: "Especificaciones Técnicas",
       desc: "Aeronave matriz que estandarizó la aviación comercial mediante la digitalización.",
-      imgHint: "Airbus A320",
+      imgHint: "./imagenes/A320.png",
       data: [
         { t: "Dimensiones", d: "Longitud de 37.57 m, envergadura de 34.09 m (35.80 m neo)." },
         { t: "Masa y Alcance", d: "MTOW desde 67,000 kg a 79,000 kg. Alcance máximo de 3,450 NM a Mach 0.82." },
@@ -804,7 +804,7 @@ const CUSTOM_SLIDES_DATA = {
     {
       title: "ATA 27: Controles de Vuelo",
       desc: "Introduce sistema Fly-By-Wire operado por un sidestick pasivo.",
-      imgHint: "Esquema ELAC/SEC",
+      imgHint: "./imagenes/motorA320.png",
       data: [
         { t: "Redundancia", d: "Computadoras ELAC y SEC con procesadores diferentes (Motorola e Intel)." },
         { t: "Ley Normal", d: "Protecciones de factor de carga (+2.5g/-1g), cabeceo y alabeo (67°)." },
@@ -815,7 +815,7 @@ const CUSTOM_SLIDES_DATA = {
     {
       title: "Aviónica e Hidráulica",
       desc: "Comunicaciones digitales y sistemas de potencia de la plataforma base.",
-      imgHint: "Esquema ARINC 429",
+      imgHint: "./imagenes/arinc429.png",
       data: [
         { t: "ATA 42 (Aviónica)", d: "Comunicación digital mediante buses de datos estándar ARINC 429." },
         { t: "ATA 29 (Hidráulica)", d: "Tres circuitos independientes a 3000 psi interconectados por PTU." },
@@ -826,7 +826,7 @@ const CUSTOM_SLIDES_DATA = {
     {
       title: "Climatización y Combustible",
       desc: "Optimizaciones integradas en las versiones neo.",
-      imgHint: "Pack Flow / Tanques",
+      imgHint: "./imagenes/combustibleA320.png",
       data: [
         { t: "ATA 21 (Climatización)", d: "Función 'Pack Flow' adaptativa calibra extracción de aire según cantidad de pasajeros." },
         { t: "ATA 28 (Combustible)", d: "Sistemas OBIGGS/NGS inyectan nitrógeno enriquecido a los tanques." },
@@ -839,7 +839,7 @@ const CUSTOM_SLIDES_DATA = {
     {
       title: "A321: Alta Densidad y Largo Radio",
       desc: "Desarrollado para demandas de alta densidad y misiones LR / XLR.",
-      imgHint: "Airbus A321",
+      imgHint: "./imagenes/A321.png",
       data: [
         { t: "Dimensiones", d: "El más largo de la familia con 44.51 m. Envergadura de 35.80 m (neo)." },
         { t: "Masa y Alcance", d: "MTOW escala de 83,000 kg a masivas 101,500 kg (XLR). Rango hasta 4,700 NM." },
@@ -850,7 +850,7 @@ const CUSTOM_SLIDES_DATA = {
     {
       title: "Evolución Energética y Estructural",
       desc: "Sistemas ATA 24 y ATA 32 para soportar la inmensa demanda de sistemas extra.",
-      imgHint: "Tren Aterrizaje / VFG",
+      imgHint: "./imagenes/TrenA321.png",
       data: [
         { t: "ATA 24 (Energía)", d: "Elimina IDG y adopta Generadores de Frecuencia Variable (VFG) de 120 kVA." },
         { t: "Frecuencia VFG", d: "La energía entregada fluctúa constantemente entre 360 y 800 Hz." },
@@ -861,7 +861,7 @@ const CUSTOM_SLIDES_DATA = {
     {
       title: "Arquitectura de Cabina y Combustible",
       desc: "Sistemas ATA 25 y ATA 28 rediseñados para vuelos transoceánicos.",
-      imgHint: "Arquitectura Cabin-Flex",
+      imgHint: "./imagenes/cabinflexA321.png",
       data: [
         { t: "ATA 25 (Cabin-Flex)", d: "Salidas dobles sobre el ala permiten evacuar 240 pasajeros en 90 segundos." },
         { t: "ATA 28 (Tanques)", d: "El XLR incorpora un Rear Centre Tank (RCT) permanente de 12,900 litros." },
@@ -872,7 +872,7 @@ const CUSTOM_SLIDES_DATA = {
     {
       title: "Controles de Vuelo y Operatividad",
       desc: "Solución de software ante alteraciones del centro de gravedad.",
-      imgHint: "A321 neo en aproximación",
+      imgHint: "./imagenes/aproxA321.png",
       data: [
         { t: "ATA 27 (Controles)", d: "Anomalía dinámica extrema descubierta en pruebas de certificación." },
         { t: "Directiva EASA", d: "AD 2019-0171 obligó a limitar el centro de gravedad trasero contra cabeceos." },
@@ -885,7 +885,7 @@ const CUSTOM_SLIDES_DATA = {
     {
       title: "A319: Plataforma de Menor Densidad",
       desc: "Retiene más del 90% de la comunalidad con el Airbus A320.",
-      imgHint: "Airbus A319 frontal",
+      imgHint: "./imagenes/frontA319.png",
       data: [
         { t: "Dimensiones", d: "Fuselaje acortado a 33.84 m de longitud. Envergadura de 34.10 m." },
         { t: "Masa y Alcance", d: "MTOW reducido de 64,000 a 75,500 kg. Rango de hasta 3,750 NM." },
@@ -896,7 +896,7 @@ const CUSTOM_SLIDES_DATA = {
     {
       title: "Desafíos Estructurales por Acortamiento",
       desc: "Impacto estructural de los Sharklets en un fuselaje más corto.",
-      imgHint: "Sharklets y Flexión Torsional",
+      imgHint: "./imagenes/sharkletsA319.png",
       data: [
         { t: "ATA 28 y Estructura", d: "El acortamiento provocaba mayor momento de flexión torsional en la raíz del ala." },
         { t: "Modificación 160001", d: "Limitación por software del tanque central a 23,817 litros para evitar fatiga." },
@@ -907,7 +907,7 @@ const CUSTOM_SLIDES_DATA = {
     {
       title: "Climatización, Aviónica y Servicio",
       desc: "Sistemas presurizados y estado de flota en Argentina.",
-      imgHint: "ADIRU / ECAM",
+      imgHint: "./imagenes/ECAMA319.png",
       data: [
         { t: "ATA 21 (Climatización)", d: "Computadoras BMC mantienen presión a 44 psi con diferencial máximo de 8.06 psi." },
         { t: "ATA 22/31/34 (Aviónica)", d: "Sistemas FMGS y presentación EIS centralizan las alertas en pantalla ECAM." },
@@ -936,7 +936,7 @@ const AIRCRAFT_MODELS = [
   "Airbus A380"
 ];
 
-/* PLANTILLAS DE DIAPOSITIVAS INTERMEDIAS (CORREGIDAS) */
+/* PLANTILLAS DE DIAPOSITIVAS INTERMEDIAS (SOLO IMÁGENES) */
 const layouts = [
   {
     name: "layout-1",
@@ -954,11 +954,8 @@ const layouts = [
             <div class="data-card"><h3>Dato 4</h3><p>Información</p></div>
           </div>
         </div>
-        <div class="model-slot intermediate-model">
-          <div class="slot">
-            <div class="slot-label">MODELO 3D</div>
-            <div class="slot-hint">Columna izquierda</div>
-          </div>
+        <div class="visual-slot" style="border: none; background: transparent; box-shadow: none;">
+          <img src="IMAGEN" alt="Material visual de soporte" style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px; border: 1px solid rgba(69,168,255,.48);">
         </div>
       </div>
     `
@@ -967,11 +964,8 @@ const layouts = [
     name: "layout-2",
     html: `
       <div class="intermediate-layout">
-        <div class="model-slot intermediate-model">
-          <div class="slot">
-            <div class="slot-label">MODELO 3D</div>
-            <div class="slot-hint">Columna izquierda</div>
-          </div>
+        <div class="visual-slot" style="border: none; background: transparent; box-shadow: none;">
+          <img src="IMAGEN" alt="Material visual de soporte" style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px; border: 1px solid rgba(69,168,255,.48);">
         </div>
         <div class="right-column">
           <div class="intermediate-title">
@@ -997,10 +991,8 @@ const layouts = [
             <h2>TÍTULO</h2>
             <p>Breve descripción</p>
           </div>
-          <div class="visual-slot">
-            <div class="slot">
-              <div class="slot-hint">IMAGEN</div>
-            </div>
+          <div class="visual-slot" style="border: none; background: transparent; box-shadow: none;">
+            <img src="IMAGEN" alt="Material visual de soporte" style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px; border: 1px solid rgba(69,168,255,.48);">
           </div>
         </div>
         <div class="intermediate-data">
@@ -1028,10 +1020,8 @@ const layouts = [
             <div class="data-card"><h3>Dato 4</h3><p>Información</p></div>
           </div>
         </div>
-        <div class="visual-slot">
-          <div class="slot">
-            <div class="slot-hint">IMAGEN</div>
-          </div>
+        <div class="visual-slot" style="border: none; background: transparent; box-shadow: none;">
+          <img src="IMAGEN" alt="Material visual de soporte" style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px; border: 1px solid rgba(69,168,255,.48);">
         </div>
       </div>
     `
@@ -1045,10 +1035,8 @@ const layouts = [
             <h2>TÍTULO</h2>
             <p>Breve descripción</p>
           </div>
-          <div class="visual-slot">
-            <div class="slot">
-              <div class="slot-hint">IMAGEN</div>
-            </div>
+          <div class="visual-slot" style="border: none; background: transparent; box-shadow: none;">
+            <img src="IMAGEN" alt="Material visual de soporte" style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px; border: 1px solid rgba(69,168,255,.48);">
           </div>
         </div>
         <div class="intermediate-data">
@@ -1069,10 +1057,8 @@ const layouts = [
             <h2>TÍTULO</h2>
             <p>Breve descripción</p>
           </div>
-          <div class="visual-slot">
-            <div class="slot">
-              <div class="slot-hint">IMAGEN</div>
-            </div>
+          <div class="visual-slot" style="border: none; background: transparent; box-shadow: none;">
+            <img src="IMAGEN" alt="Material visual de soporte" style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px; border: 1px solid rgba(69,168,255,.48);">
           </div>
         </div>
         <div class="intermediate-data">
@@ -1213,9 +1199,13 @@ function createIntermediate(sectionIndex, number, layoutIndex, customData) {
     }
 
     if (customData.imgHint) {
-      html = html.replace(/IMAGEN/g, customData.imgHint)
-                 .replace(/Columna izquierda/g, customData.imgHint);
+      html = html.replace(/IMAGEN/g, customData.imgHint);
     }
+  } else {
+    // Si no hay datos (aviones pendientes), generamos un diseño provisional (placeholder) que varíe visualmente.
+    html = html.replace("TÍTULO", `Plantilla de Diseño ${layoutIndex + 1}`)
+               .replace("Breve descripción", "Espacio reservado para integrar la información técnica pendiente.")
+               .replace(/IMAGEN/g, "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='rgba(0,113,255,0.05)'/%3E%3Ctext x='50%25' y='50%25' font-family='sans-serif' font-size='16' font-weight='bold' fill='%2362d7ff' text-anchor='middle' dy='.3em' letter-spacing='2'%3EESPACIO PARA IMAGEN%3C/text%3E%3C/svg%3E");
   }
 
   section.innerHTML = html;
@@ -1240,6 +1230,7 @@ for(let i=1;i<MAIN_SLIDES.length;i++) {
         stage.appendChild(createIntermediate(i, j+1, j, customContent[j]));
       }
     } else {
+      // Recreamos las diapositivas vacías para mantener la progresión de la presentación
       for(let j=0;j<INTERMEDIATE_PER_SECTION;j++) {
         stage.appendChild(createIntermediate(i, j+1, j, null));
       }
