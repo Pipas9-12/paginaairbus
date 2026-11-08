@@ -1192,7 +1192,7 @@ function createIntermediate(sectionIndex, number, layoutIndex, customData) {
         html = html.replace(`Dato ${i+1}`, customData.data[i].t);
         html = html.replace("<p>Información</p>", `<p>${customData.data[i].d}</p>`);
       } else {
-        html = html.replace(new RegExp(`<div class="data-card"[^>]*>\\s*<h3>Dato ${i\\+1}</h3>\\s*<p>Información</p>\\s*</div>`), "");
+        html = html.replace(new RegExp(`<div class="data-card"[^>]*>\\s*<h3>Dato ${i+1}</h3>\\s*<p>Información</p>\\s*</div>`), "");
       }
     }
 
