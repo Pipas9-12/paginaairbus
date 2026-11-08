@@ -576,7 +576,7 @@ h3 {
 
 .layout-6 .intermediate-layout { grid-template-columns: 1fr 1fr; }
 .layout-6 .left-column { display: grid; grid-template-rows: auto 1fr; gap: clamp(18px, 2vw, 26px); min-height: 0; }
-.layout-6 .intermediate-data { grid-template-columns: 1fr; grid-template-rows: repeat(3, minmax(0, 1fr)); }
+.layout-6 .intermediate-data { grid-template-columns: 1fr; grid-template-rows: repeat(2, minmax(0, 1fr)); } /* Ajustado a 2x2 */
 
 /* EFECTOS */
 .data-card:hover, .intermediate-title:hover, .meta-item:hover, .slot:hover, .visual-slot:hover {
@@ -674,8 +674,9 @@ h3 {
   .layout-6 .intermediate-layout { grid-template-columns: 1fr; grid-template-rows: auto; }
   .layout-1 .left-column, .layout-2 .right-column, .layout-3 .left-column,
   .layout-4 .left-column, .layout-5 .left-column, .layout-6 .left-column { min-height: 250px; }
-  .layout-3 .intermediate-data { grid-template-columns: 1fr; grid-template-rows: repeat(4, minmax(75px, auto)); }
-  .layout-6 .intermediate-data { grid-template-columns: 1fr; grid-template-rows: repeat(3, minmax(75px, auto)); }
+  .layout-3 .intermediate-data, .layout-6 .intermediate-data, .layout-4 .intermediate-data, .layout-5 .intermediate-data { 
+    grid-template-columns: 1fr; grid-template-rows: repeat(4, minmax(75px, auto)); 
+  }
   .intermediate-data { grid-auto-rows: minmax(75px, auto); }
   .visual-slot, .intermediate-model { min-height: 210px; }
   .content-area, .two-col { grid-template-columns: 1fr !important; grid-template-rows: auto !important; }
@@ -917,6 +918,13 @@ const CUSTOM_SLIDES_DATA = {
   ]
 };
 
+/* RESUMEN HISTÓRICO PARA LAS DIAPOSITIVAS PRINCIPALES */
+const AIRCRAFT_INTROS = {
+  "Airbus A320": "Entró en servicio comercial en 1988. Su propósito fundamental fue revolucionar y estandarizar la aviación comercial de pasillo único, siendo pionero en la introducción de la tecnología digital Fly-By-Wire y los controles mediante sidestick pasivo.",
+  "Airbus A321": "Entró en servicio comercial en 1994. Desarrollado como el primer derivado del A320, su propósito es responder a las exigencias de operaciones de alta densidad y rutas de mayor alcance, escalando significativamente su peso máximo al despegue (MTOW) y capacidad de pasajeros.",
+  "Airbus A319": "Entró en servicio comercial en 1996. Fue concebido específicamente para operar eficientemente en rutas de menor densidad de pasajeros, ofreciendo un fuselaje acortado pero reteniendo más del 90% de la comunalidad técnica y operativa con el A320 base."
+};
+
 const AIRCRAFT_MODELS = [
   "Airbus A310",
   "Airbus A319",
@@ -928,7 +936,7 @@ const AIRCRAFT_MODELS = [
   "Airbus A380"
 ];
 
-/* PLANTILLAS DE DIAPOSITIVAS INTERMEDIAS */
+/* PLANTILLAS DE DIAPOSITIVAS INTERMEDIAS (CORREGIDAS) */
 const layouts = [
   {
     name: "layout-1",
@@ -1013,9 +1021,11 @@ const layouts = [
             <h2>TÍTULO</h2>
             <p>Breve descripción</p>
           </div>
-          <div class="data-card">
-            <h3>Datos</h3>
-            <p>Información</p>
+          <div class="intermediate-data">
+            <div class="data-card"><h3>Dato 1</h3><p>Información</p></div>
+            <div class="data-card"><h3>Dato 2</h3><p>Información</p></div>
+            <div class="data-card"><h3>Dato 3</h3><p>Información</p></div>
+            <div class="data-card"><h3>Dato 4</h3><p>Información</p></div>
           </div>
         </div>
         <div class="visual-slot">
@@ -1069,6 +1079,7 @@ const layouts = [
           <div class="data-card"><h3>Dato 1</h3><p>Información</p></div>
           <div class="data-card"><h3>Dato 2</h3><p>Información</p></div>
           <div class="data-card"><h3>Dato 3</h3><p>Información</p></div>
+          <div class="data-card"><h3>Dato 4</h3><p>Información</p></div>
         </div>
       </div>
     `
@@ -1153,6 +1164,11 @@ function createPrincipal(title,index) {
       </div>
     `;
   } else {
+    const introLabel = AIRCRAFT_INTROS[title] ? "Contexto Histórico y Propósito" : "Contenido de la sección";
+    const introText = AIRCRAFT_INTROS[title] 
+      ? `<span style="font-size: clamp(12px, 1.2vw, 15px); text-align: justify; display: block; padding: 0 10px; line-height: 1.6;">${AIRCRAFT_INTROS[title]}</span>` 
+      : "ESPACIO PARA TEXTO, DATOS O INFORMACIÓN TÉCNICA";
+
     section.innerHTML = `
       <div class="slide-kicker">Sección principal · ${String(index+1).padStart(2,"0")}</div>
       <div class="content-area two-col">
@@ -1162,8 +1178,8 @@ function createPrincipal(title,index) {
             <p class="subtitle">Espacio reservado para la presentación de esta sección.</p>
           </div>
           <div class="slot fill">
-            <div class="slot-label">Contenido de la sección</div>
-            <div class="slot-hint">ESPACIO PARA TEXTO, DATOS O INFORMACIÓN TÉCNICA</div>
+            <div class="slot-label">${introLabel}</div>
+            <div class="slot-hint">${introText}</div>
           </div>
         </div>
         <div class="stack">
@@ -1212,6 +1228,10 @@ for(let i=1;i<MAIN_SLIDES.length;i++) {
   const slideName = MAIN_SLIDES[i];
   const omitir = OMITIR_INTERMEDIOS.includes(slideName);
 
+  /* 1. Insertamos la portada principal del avión PRIMERO */
+  stage.appendChild(createPrincipal(slideName, i));
+
+  /* 2. Insertamos la información técnica DESPUÉS de la portada */
   if(!omitir) {
     const customContent = CUSTOM_SLIDES_DATA[slideName];
 
@@ -1225,8 +1245,6 @@ for(let i=1;i<MAIN_SLIDES.length;i++) {
       }
     }
   }
-
-  stage.appendChild(createPrincipal(slideName, i));
 }
 
 /* NAVEGACIÓN */
